@@ -1,0 +1,265 @@
+* {
+    font-family: "Jost";
+    color: var(--color-regular);
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#offer:target {
+    scroll-margin-top: 200px;
+}
+
+h1,
+h2,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap-md);
+}
+
+.link {
+    display: inline-flex;
+    gap: var(--gap-sm);
+    font-size: var(--fs-base);
+    align-items: center;
+    color: var(--color-blue-main);
+}
+
+.logo {
+    line-height: 0;
+}
+
+.margin-top-sm {
+    margin-top: 80px;
+}
+
+.margin-top-md {
+    margin-top: 160px;
+}
+
+.margin-top-lg {
+    margin-top: 240px;
+}
+
+.margin-bottom-sm {
+    margin-bottom: 80px;
+}
+
+.margin-bottom-md {
+    margin-bottom: 160px;
+}
+
+.margin-bottom-lg {
+    margin-bottom: 240px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: clamp(320px, 100%, 500px);
+    gap: var(--gap-lg);
+    align-items: center;
+    transform: translateY(var(--translate-y, 0));
+}
+
+.note {
+    text-align: center;
+    font-size: var(--fs-xs);
+    color: var(--color-grey);
+
+    &--main {
+        color: var(--color-regular);
+    }
+    &--left {
+        text-align: left;
+    }
+}
+
+.poligon {
+    position: absolute;
+    left: var(--left, auto);
+    top: var(--top, auto);
+    width: var(--width, auto);
+    height: var(--height, auto);
+    z-index: 0;
+
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.poligon-bg {
+    position: relative;
+    z-index: 0;
+    color: var(--color-white);
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -5%;
+        left: -5%;
+        right: -5%;
+        bottom: -5%;
+        border-radius: var(--radius-sm);
+        transform: skew(-20deg);
+        background: linear-gradient(90deg, var(--color-blue-main) 0%, var(--color-blue-second) 100%);
+        z-index: -1;
+    }
+}
+
+.headline {
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--color-blue-main);
+    position: relative;
+    margin-bottom: 60px;
+
+    &--margin-sm {
+        margin-bottom: 30px;
+    }
+
+    &::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background-color: var(--color-orange);
+        position: absolute;
+        top: calc(100% + 20px);
+        left: 0;
+    }
+
+    &--center::after {
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @media (max-width: 1023px) {
+
+        text-align: center;
+        &::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.paragraph {
+    line-height: var(--lh-lg);
+    font-size: var(--fs-sm);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    max-width: var(--max-size) !important;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--padding-base);
+}
+
+$breakpoints: (
+    "sm": 576px,
+    "md": 768px,
+    "lg": 1200px,
+);
+
+@mixin respond-to($breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+:root {
+    // цвета
+    --color-blue-main: #005baa;
+    --color-blue-second: #1a7bbf;
+    --color-orange: #f27028;
+    --color-orange-second: #f59324;
+    --color-regular: #333;
+    --color-grey: #888;
+    --color-grey-light: #f6f6f6;
+    --color-white: #fff;
+
+    // гэп
+    --gap-xl: 80px;
+    --gap-lg: 40px;
+    --gap-md: 20px;
+    --gap-sm: 10px;
+
+    // паддинг
+    --padding-xl: 80px;
+    --padding-lg: 40px;
+    --padding-md: 20px;
+    --padding-base: 10px 20px;
+    --padding-sm: 10px;
+
+    // радиус
+    --radius-lg: 24px;
+    --radius-sm: 8px;
+
+    // размер шрифта
+    --fs-xl: 3rem;
+    --fs-lg: 2.25rem;
+    --fs-md: 2rem;
+    --fs-base: 1.5rem;
+    --fs-sm: 1rem;
+    --fs-xs: 0.75rem;
+    --fs-xxs: 0.6rem;
+
+    // межстрочный интервал
+    --lh-lg: 2;
+    --lh-md: 1.6;
+
+    // ширина
+    --max-size: 1440px;
+
+    // бордер
+    --border-h-lg: 4px;
+    --border-h-md: 2px;
+}
+
+@include respond-to("md") {
+    :root {
+        --fs-xl: 3rem;
+        --fs-lg: 2.25rem;
+        --fs-md: 2rem;
+        --fs-base: 1.5rem;
+        --fs-sm: 1rem;
+        --fs-xs: 0.75rem;
+        --fs-xxs: 0.6rem;
+    }
+}
+
+@include respond-to("lg") {
+    :root {
+        --fs-xl: 4rem;
+        --fs-lg: 2.5rem;
+        --fs-md: 2.25rem;
+        --fs-base: 1.5rem;
+        --fs-sm: 1.25rem;
+        --fs-xs: 1;
+        --fs-xxs: 0.6rem;
+    }
+}
+
+.orange {
+    color: var(--color-orange);
+}
