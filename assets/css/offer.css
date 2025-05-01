@@ -7,6 +7,11 @@
   gap: var(--gap-md);
   justify-content: center;
   height: 100%;
+  position: absolute;
+}
+.offer__content.active {
+  opacity: 0;
+  visibility: hidden;
 }
 .offer__text {
   font-size: var(--fs-base);

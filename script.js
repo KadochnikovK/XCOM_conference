@@ -250,23 +250,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const hamburger = document.querySelector(".header__hamburger");
 const menu = document.querySelector(".header__menu");
+const offerContent = document.querySelector(".offer__content");
+
+// Добавляем transition свойства через JavaScript (можно также через CSS)
+menu.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+offerContent.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
 
 hamburger.addEventListener("click", function () {
     this.classList.toggle("active");
-    menu.classList.toggle("active");
-
+    
     if (menu.classList.contains("active")) {
-        document.body.style.overflow = "hidden";
+        // Закрываем меню - плавно исчезает menu, появляется offerContent
+        menu.style.opacity = '0';
+        menu.style.visibility = 'hidden';
+        
+        offerContent.style.opacity = '1';
+        offerContent.style.visibility = 'visible';
+        
+        // Удаляем классы active после завершения анимации
+        setTimeout(() => {
+            menu.classList.remove("active");
+            offerContent.classList.remove("active");
+        }, 300);
     } else {
-        document.body.style.overflow = "";
+        // Открываем меню - плавно исчезает offerContent, появляется menu
+        offerContent.style.opacity = '0';
+        offerContent.style.visibility = 'hidden';
+        
+        menu.style.opacity = '1';
+        menu.style.visibility = 'visible';
+        
+        // Добавляем классы active
+        menu.classList.add("active");
+        offerContent.classList.add("active");
     }
+
 });
 
 const menuLinks = document.querySelectorAll(".header__link");
 menuLinks.forEach((link) => {
     link.addEventListener("click", function () {
         hamburger.classList.remove("active");
-        menu.classList.remove("active");
-        document.body.style.overflow = "";
+        
+        // Плавное закрытие меню и появление offerContent
+        menu.style.opacity = '0';
+        menu.style.visibility = 'hidden';
+        
+        offerContent.style.opacity = '1';
+        offerContent.style.visibility = 'visible';
+        
+        // Удаляем классы active после завершения анимации
+        setTimeout(() => {
+            menu.classList.remove("active");
+            offerContent.classList.remove("active");
+        }, 300);
+        
+        
     });
 });

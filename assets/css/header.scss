@@ -23,7 +23,7 @@
 
     &__menu {
         position: absolute;
-        top: 100%;
+
         left: 0;
         width: 100%;
         display: none;
@@ -34,6 +34,19 @@
 
         &.active {
             display: flex;
+            counter-reset: link-counter;
+            top: 50vh;
+            transform: translateY(-20vh);
+
+            .header__link {
+                font-size: var(--fs-md);
+                counter-increment: link-counter;
+
+                &::before {
+                    content: "0" counter(link-counter) ". ";
+                    margin-right: 0.5em;
+                }
+            }
         }
     }
 
@@ -170,6 +183,9 @@
             box-shadow: none;
             border-bottom: none;
             gap: var(--gap-lg);
+            opacity: 1 !important; 
+            visibility: visible !important;
+
         }
 
         &__link {
@@ -177,6 +193,8 @@
             padding: 0;
             border-bottom: none;
             text-align: center;
+            
+
 
             &:hover {
                 background-color: transparent;

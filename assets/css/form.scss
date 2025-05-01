@@ -16,6 +16,7 @@
         display: flex;
         flex-direction: column;
         grid-column: span 2;
+        position: relative;
 
         @media(min-width: $sm) {
             grid-column: span 1;
@@ -39,8 +40,8 @@
 
 .error-message {
     position: absolute;
-    top: 90%;
+    top: 92%;
     color: #ff0000;
-    font-size: var(--fs-xxs);
+    font-size: var(--fs-sm);
     margin-top: 5px;
   }

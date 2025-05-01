@@ -7,6 +7,12 @@
         gap: var(--gap-md);
         justify-content: center;
         height: 100%;
+        position: absolute;
+
+        &.active {
+            opacity: 0;
+            visibility: hidden;
+        }
     }
 
     &__text {
