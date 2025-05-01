@@ -34,7 +34,6 @@ const swiper = new Swiper(".swiper", {
         el: ".swiper-scrollbar",
         hide: true,
     },
-    // spaceBetween: 1,
     freeMode: {
         enabled: true,
         sticky: false,
@@ -71,7 +70,7 @@ window.addEventListener('resize', resizeCanvas);
 document.addEventListener('mousemove', e => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    glowStrength = 1; // активируем при движении
+    glowStrength = 1;
 });
 
 function lerp(a, b, t) {
@@ -84,10 +83,10 @@ function draw() {
     const radius = 350;
     const radiusSq = radius * radius;
 
-    // Плавное затухание при отсутствии движения
+
     glowStrength = lerp(glowStrength, 0, 0.02);
 
-    // Базовая сетка (10% непрозрачности)
+ 
     ctx.strokeStyle = 'rgba(200, 200, 200, 0.1)';
     ctx.shadowBlur = 0;
     for (let x = 0; x <= canvas.width; x += gridSize) {
@@ -103,7 +102,7 @@ function draw() {
         ctx.stroke();
     }
 
-    // Подсвеченные участки сетки
+   
     for (let x = 0; x <= canvas.width; x += gridSize) {
         for (let y = 0; y <= canvas.height; y += gridSize) {
             const dx = x - mouseX;
@@ -112,11 +111,11 @@ function draw() {
 
             if (distSq <= radiusSq) {
                 const dist = Math.sqrt(distSq);
-                let t = 1 - dist / radius; // от 0 (край) до 1 (центр)
-                t = Math.pow(t, 2); // квадратичное затухание
+                let t = 1 - dist / radius;
+                t = Math.pow(t, 2); 
 
-                const baseColor = [200, 200, 200]; // #c8c8c8
-                const glowColor = [87, 132, 230];  // #5784E6
+                const baseColor = [200, 200, 200]; 
+                const glowColor = [87, 132, 230]; 
 
                 const alpha = .7 * t * glowStrength;
                 const color = `rgba(87, 132, 230, ${alpha})`;
@@ -125,7 +124,6 @@ function draw() {
                 ctx.shadowBlur = 30 * t * glowStrength;
                 ctx.shadowColor = color;
 
-                // Рисуем только локальные участки
                 ctx.beginPath();
                 ctx.moveTo(x - gridSize / 2, y);
                 ctx.lineTo(x + gridSize / 2, y);
@@ -252,7 +250,7 @@ const hamburger = document.querySelector(".header__hamburger");
 const menu = document.querySelector(".header__menu");
 const offerContent = document.querySelector(".offer__content");
 
-// Добавляем transition свойства через JavaScript (можно также через CSS)
+
 menu.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
 offerContent.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
 
@@ -260,27 +258,27 @@ hamburger.addEventListener("click", function () {
     this.classList.toggle("active");
     
     if (menu.classList.contains("active")) {
-        // Закрываем меню - плавно исчезает menu, появляется offerContent
+        
         menu.style.opacity = '0';
         menu.style.visibility = 'hidden';
         
         offerContent.style.opacity = '1';
         offerContent.style.visibility = 'visible';
         
-        // Удаляем классы active после завершения анимации
+        
         setTimeout(() => {
             menu.classList.remove("active");
             offerContent.classList.remove("active");
         }, 300);
     } else {
-        // Открываем меню - плавно исчезает offerContent, появляется menu
+       
         offerContent.style.opacity = '0';
         offerContent.style.visibility = 'hidden';
         
         menu.style.opacity = '1';
         menu.style.visibility = 'visible';
         
-        // Добавляем классы active
+       
         menu.classList.add("active");
         offerContent.classList.add("active");
     }
@@ -292,14 +290,14 @@ menuLinks.forEach((link) => {
     link.addEventListener("click", function () {
         hamburger.classList.remove("active");
         
-        // Плавное закрытие меню и появление offerContent
+        
         menu.style.opacity = '0';
         menu.style.visibility = 'hidden';
         
         offerContent.style.opacity = '1';
         offerContent.style.visibility = 'visible';
         
-        // Удаляем классы active после завершения анимации
+
         setTimeout(() => {
             menu.classList.remove("active");
             offerContent.classList.remove("active");
