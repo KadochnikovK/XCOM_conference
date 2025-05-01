@@ -1,11 +1,27 @@
+$breakpoints: (
+    "sm": 576px,
+    "md": 768px,
+    "lg": 1200px,
+);
+
+@mixin respond-to($breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
 * {
-    font-family: "Jost";
-    color: var(--color-regular);
+    font-family: "Jost", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: inherit;
     scroll-behavior: smooth;
+    z-index: 1;
 }
 
 body {
     overflow-x: hidden;
+    margin: 0;
 }
 
 #offer:target {
@@ -40,104 +56,57 @@ a {
     line-height: 0;
 }
 
-.margin-top-sm {
-    margin-top: 80px;
-}
-
-.margin-top-md {
-    margin-top: 160px;
-}
-
-.margin-top-lg {
-    margin-top: 240px;
-}
-
-.margin-bottom-sm {
-    margin-bottom: 80px;
-}
-
-.margin-bottom-md {
-    margin-bottom: 160px;
-}
-
-.margin-bottom-lg {
-    margin-bottom: 240px;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: clamp(320px, 100%, 500px);
-    gap: var(--gap-lg);
-    align-items: center;
-    transform: translateY(var(--translate-y, 0));
-}
-
-.note {
-    text-align: center;
-    font-size: var(--fs-xs);
-    color: var(--color-grey);
-
-    &--main {
-        color: var(--color-regular);
+.margin {
+    &-top-sm {
+        margin-top: var(--margin-sm);
     }
-    &--left {
-        text-align: left;
+
+    &-top-md {
+        margin-top: var(--margin-md);
     }
+
+    &-top-lg {
+        margin-top: var(--margin-lg);
+    }
+
+    &-top-xl {
+        margin-top: var(--margin-xl);
+    }
+
+    &-bottom-sm {
+        margin-bottom: var(--margin-sm);
+    }
+
+    &-bottom-md {
+        margin-bottom: var(--margin-md);
+    }
+
+    &-bottom-lg {
+        margin-bottom: var(--margin-lg);
+    }
+
+    &-bottom-xl {
+        margin-bottom: var(--margin-xl);
+    }
+
 }
 
-.poligon {
-    position: absolute;
-    left: var(--left, auto);
-    top: var(--top, auto);
-    width: var(--width, auto);
-    height: var(--height, auto);
-    z-index: 0;
 
-    @media (max-width: 767px) {
-        display: none;
-    }
-}
-
-.poligon-bg {
-    position: relative;
-    z-index: 0;
-    color: var(--color-white);
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: -5%;
-        left: -5%;
-        right: -5%;
-        bottom: -5%;
-        border-radius: var(--radius-sm);
-        transform: skew(-20deg);
-        background: linear-gradient(90deg, var(--color-blue-main) 0%, var(--color-blue-second) 100%);
-        z-index: -1;
-    }
-}
 
 .headline {
-    font-size: var(--fs-lg);
-    font-weight: 700;
+    font-size: var(--fs-xxl);
+    font-weight: 500;
     color: var(--color-blue-main);
     position: relative;
-    margin-bottom: 60px;
+    line-height: 1;
+
 
     &--margin-sm {
         margin-bottom: 30px;
     }
 
-    &::after {
-        content: "";
-        width: 70px;
-        height: 4px;
-        background-color: var(--color-orange);
-        position: absolute;
-        top: calc(100% + 20px);
-        left: 0;
+    &--light {
+        color: var(--color-white)
     }
 
     &--center::after {
@@ -146,14 +115,11 @@ a {
         transform: translateX(-50%);
     }
 
-    @media (max-width: 1023px) {
+}
 
-        text-align: center;
-        &::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    }
+.text-big {
+    font-size: var(--fs-base);
+    font-weight: 600;
 }
 
 .paragraph {
@@ -168,72 +134,90 @@ a {
 
 .content {
     max-width: var(--max-size) !important;
+    color: var(--color-regular);
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     width: 100%;
-    padding: var(--padding-base);
+    padding-right: var(--padding-md);
+    padding-left: var(--padding-md);
 }
 
-$breakpoints: (
-    "sm": 576px,
-    "md": 768px,
-    "lg": 1200px,
-);
-
-@mixin respond-to($breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
-        @content;
+.line {
+    &-top {
+        border-top: 1px solid var(--color-grey-light);
     }
+
+    &-bottom {
+        border-bottom: 1px solid var(--color-grey-light);
+    }
+
+    &-left {
+        border-left: 1px solid var(--color-grey-light);
+    }
+
+    &-right {
+        border-right: 1px solid var(--color-grey-light);
+    }
+
 }
+
+
 
 :root {
     // цвета
-    --color-blue-main: #005baa;
-    --color-blue-second: #1a7bbf;
+    --color-blue-main: #5784e6;
+    --color-blue-second: #0B1957;
     --color-orange: #f27028;
     --color-orange-second: #f59324;
-    --color-regular: #333;
-    --color-grey: #888;
-    --color-grey-light: #f6f6f6;
+    --color-regular: #343434;
+    --color-grey: #7D7D7D;
+    --color-grey-light: #EFEFEF;
     --color-white: #fff;
 
     // гэп
-    --gap-xl: 80px;
-    --gap-lg: 40px;
-    --gap-md: 20px;
-    --gap-sm: 10px;
+    --gap-xl: 64px;
+    --gap-lg: 48px;
+    --gap-md: 24px;
+    --gap-sm: 16px;
 
     // паддинг
-    --padding-xl: 80px;
-    --padding-lg: 40px;
-    --padding-md: 20px;
-    --padding-base: 10px 20px;
-    --padding-sm: 10px;
+    --padding-xl: 64px;
+    --padding-lg: 48px;
+    --padding-md: 24px;
+    --padding-sm: 16px;
 
     // радиус
     --radius-lg: 24px;
     --radius-sm: 8px;
 
     // размер шрифта
+    --fs-xxl: 4rem;
     --fs-xl: 3rem;
     --fs-lg: 2.25rem;
     --fs-md: 2rem;
     --fs-base: 1.5rem;
+    --fs-regular: 1.25rem;
     --fs-sm: 1rem;
     --fs-xs: 0.75rem;
     --fs-xxs: 0.6rem;
 
     // межстрочный интервал
-    --lh-lg: 2;
-    --lh-md: 1.6;
+    --lh-lg: 1.6;
+    --lh-md: 1.2;
 
     // ширина
-    --max-size: 1440px;
+    --max-size: 1140px;
 
     // бордер
     --border-h-lg: 4px;
     --border-h-md: 2px;
+
+    // маргин 
+    --margin-xl: 64px;
+    --margin-lg: 48px;
+    --margin-md: 24px;
+    --margin-sm: 16px;
 }
 
 @include respond-to("md") {
@@ -260,6 +244,28 @@ $breakpoints: (
     }
 }
 
-.orange {
-    color: var(--color-orange);
+.color {
+    color: var(--color-blue-main);
+
+    &--grey {
+        color: var(--color-grey);
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(to right top, #0B1957, #5784E6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline;
+}
+
+.mobile-only {
+    display: block;
+
+    @media (min-width: 600px) {
+
+        display: none;
+
+    }
 }
