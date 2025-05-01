@@ -56,7 +56,7 @@
 }
 
 .desktop-only {
-    display: none;
+    display: none !important;
 
     @media (min-width: $sm) {
 

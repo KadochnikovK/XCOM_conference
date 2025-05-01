@@ -92,7 +92,7 @@
 }
 
 .desktop-only {
-  display: none;
+  display: none !important;
 }
 @media (min-width: 640px) {
   .desktop-only {
