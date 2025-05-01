@@ -1214,7 +1214,7 @@ summary {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   margin: 0;
 }
 
@@ -1246,6 +1246,7 @@ a {
   left: 0;
   display: block;
   z-index: 0;
+  max-width: 100vw !important;
 }
 
 .double-arrow {
@@ -1299,6 +1300,8 @@ a {
 
 .swiper {
   overflow: visible;
+  overflow-x: hidden;
+  width: 100vw;
 }
 
 .map {
