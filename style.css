@@ -1,3 +1,45 @@
+:root {
+  --color-blue-main: #5784e6;
+  --color-blue-second: #0B1957;
+  --color-orange: #f27028;
+  --color-orange-second: #f59324;
+  --color-regular: #343434;
+  --color-grey: #7D7D7D;
+  --color-grey-light: #EFEFEF;
+  --color-white: #fff;
+  --gap-xl: 64px;
+  --gap-lg: 48px;
+  --gap-regular: 32px;
+  --gap-md: 24px;
+  --gap-sm: 16px;
+  --padding-xl: 64px;
+  --padding-lg: 48px;
+  --padding-md: 24px;
+  --padding-sm: 16px;
+  --radius-lg: 24px;
+  --radius-sm: 8px;
+  --fs-xxl: 4rem;
+  --fs-xl: 3rem;
+  --fs-lg: 2.5rem;
+  --fs-md: 2rem;
+  --fs-base: 1.5rem;
+  --fs-regular: 1.25rem;
+  --fs-sm: 1rem;
+  --fs-xs: 0.75rem;
+  --fs-xxs: 0.6rem;
+  --lh-xl: 1.6;
+  --lh-lg: 1.4;
+  --lh-md: 1.2;
+  --max-size: 1140px;
+  --border-h-lg: 4px;
+  --border-h-md: 2px;
+  --margin-xl: 64px;
+  --margin-lg: 48px;
+  --margin-md: 24px;
+  --margin-sm: 16px;
+  --margin-xs: 8px;
+}
+
 .hyphenate {
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -43,9 +85,18 @@
 .mobile-only {
   display: block;
 }
-@media (min-width: 600px) {
+@media (min-width: 640px) {
   .mobile-only {
     display: none;
+  }
+}
+
+.desktop-only {
+  display: none;
+}
+@media (min-width: 640px) {
+  .desktop-only {
+    display: block;
   }
 }
 
