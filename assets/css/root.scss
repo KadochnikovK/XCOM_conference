@@ -1,168 +1,9 @@
-$breakpoints: (
-    "sm": 576px,
-    "md": 768px,
-    "lg": 1200px,
-);
-
-@mixin respond-to($breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
-        @content;
-    }
-}
-
-* {
-    font-family: "Jost", Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    color: inherit;
-    scroll-behavior: smooth;
-    z-index: 1;
-}
-
-body {
-    overflow-x: hidden;
-    margin: 0;
-}
-
-#offer:target {
-    scroll-margin-top: 200px;
-}
-
-h1,
-h2,
-p {
-    padding: 0;
-    margin: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-.flex {
-    display: flex;
-    gap: var(--gap-md);
-}
-
-.link {
-    display: inline-flex;
-    gap: var(--gap-sm);
-    font-size: var(--fs-base);
-    align-items: center;
-    color: var(--color-blue-main);
-}
-
-.logo {
-    line-height: 0;
-}
-
-.margin {
-    &-top-sm {
-        margin-top: var(--margin-sm);
-    }
-
-    &-top-md {
-        margin-top: var(--margin-md);
-    }
-
-    &-top-lg {
-        margin-top: var(--margin-lg);
-    }
-
-    &-top-xl {
-        margin-top: var(--margin-xl);
-    }
-
-    &-bottom-sm {
-        margin-bottom: var(--margin-sm);
-    }
-
-    &-bottom-md {
-        margin-bottom: var(--margin-md);
-    }
-
-    &-bottom-lg {
-        margin-bottom: var(--margin-lg);
-    }
-
-    &-bottom-xl {
-        margin-bottom: var(--margin-xl);
-    }
-
-}
-
-
-
-.headline {
-    font-size: var(--fs-xxl);
-    font-weight: 500;
-    color: var(--color-blue-main);
-    position: relative;
-    line-height: 1;
-
-
-    &--margin-sm {
-        margin-bottom: 30px;
-    }
-
-    &--light {
-        color: var(--color-white)
-    }
-
-    &--center::after {
-        text-align: center;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-}
-
-.text-big {
-    font-size: var(--fs-base);
-    font-weight: 600;
-}
-
-.paragraph {
-    line-height: var(--lh-lg);
-    font-size: var(--fs-sm);
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-}
-
-.content {
-    max-width: var(--max-size) !important;
-    color: var(--color-regular);
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 100%;
-    padding-right: var(--padding-md);
-    padding-left: var(--padding-md);
-}
-
-.line {
-    &-top {
-        border-top: 1px solid var(--color-grey-light);
-    }
-
-    &-bottom {
-        border-bottom: 1px solid var(--color-grey-light);
-    }
-
-    &-left {
-        border-left: 1px solid var(--color-grey-light);
-    }
-
-    &-right {
-        border-right: 1px solid var(--color-grey-light);
-    }
-
-}
-
-
+// брейкпоинты
+$xl: 1300px;
+$md:920px;
+$regular: 768px;
+$sm: 640px;
+$xs: 320px;
 
 :root {
     // цвета
@@ -178,6 +19,7 @@ a {
     // гэп
     --gap-xl: 64px;
     --gap-lg: 48px;
+    --gap-regular: 32px;
     --gap-md: 24px;
     --gap-sm: 16px;
 
@@ -194,7 +36,7 @@ a {
     // размер шрифта
     --fs-xxl: 4rem;
     --fs-xl: 3rem;
-    --fs-lg: 2.25rem;
+    --fs-lg: 2.5rem;
     --fs-md: 2rem;
     --fs-base: 1.5rem;
     --fs-regular: 1.25rem;
@@ -203,7 +45,8 @@ a {
     --fs-xxs: 0.6rem;
 
     // межстрочный интервал
-    --lh-lg: 1.6;
+    --lh-xl: 1.6;
+    --lh-lg: 1.4;
     --lh-md: 1.2;
 
     // ширина
@@ -218,54 +61,10 @@ a {
     --margin-lg: 48px;
     --margin-md: 24px;
     --margin-sm: 16px;
+    --margin-xs: 8px;
+
+    
+    
 }
 
-@include respond-to("md") {
-    :root {
-        --fs-xl: 3rem;
-        --fs-lg: 2.25rem;
-        --fs-md: 2rem;
-        --fs-base: 1.5rem;
-        --fs-sm: 1rem;
-        --fs-xs: 0.75rem;
-        --fs-xxs: 0.6rem;
-    }
-}
 
-@include respond-to("lg") {
-    :root {
-        --fs-xl: 4rem;
-        --fs-lg: 2.5rem;
-        --fs-md: 2.25rem;
-        --fs-base: 1.5rem;
-        --fs-sm: 1.25rem;
-        --fs-xs: 1;
-        --fs-xxs: 0.6rem;
-    }
-}
-
-.color {
-    color: var(--color-blue-main);
-
-    &--grey {
-        color: var(--color-grey);
-    }
-}
-
-.gradient-text {
-    background: linear-gradient(to right top, #0B1957, #5784E6);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    display: inline;
-}
-
-.mobile-only {
-    display: block;
-
-    @media (min-width: 600px) {
-
-        display: none;
-
-    }
-}

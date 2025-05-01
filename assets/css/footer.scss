@@ -1,0 +1,22 @@
+.footer {
+    background: linear-gradient(to right bottom, #5784E6 -24.17%, #0B1957 72.1%);
+
+    &__content {
+        display: grid;
+        gap: var(--gap-md);
+        color: var(--color-white);
+        grid-template-columns: .7fr 2fr;
+        grid-auto-rows: max-content;
+    }
+
+    &__item {
+        grid-column: span 2;
+    }
+
+    @media (min-width: $sm) {
+
+        &__item {
+            grid-column: span 1;
+        }
+    }
+}

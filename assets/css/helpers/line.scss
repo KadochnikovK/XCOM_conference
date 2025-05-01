@@ -1,0 +1,31 @@
+.line {
+    &-top {
+        border-top: 1px solid var(--color-grey-light);
+    }
+
+    &-bottom {
+        border-bottom: 1px solid var(--color-grey-light);
+    }
+
+    &-left {
+        border-left: 1px solid var(--color-grey-light);
+    }
+
+    &-right {
+        border-right: 1px solid var(--color-grey-light);
+    }
+
+    &-center {
+        position: relative;
+
+        &::after {
+            content: '';
+            top: 0;
+            left: 50%;
+            height: 100%;
+            position: absolute;
+            width: 1px;
+            background-color: var(--color-grey-light);
+        }
+    }
+}

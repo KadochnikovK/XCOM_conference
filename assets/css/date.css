@@ -1,0 +1,13 @@
+.date {
+  display: flex;
+  font-size: var(--fs-base);
+}
+.date__item {
+  padding: var(--padding-sm);
+}
+.date__item:nth-child(1) {
+  padding-left: 0;
+}
+.date__item:not(:last-child) {
+  border-right: 1px solid var(--color-white);
+}/*# sourceMappingURL=date.css.map */

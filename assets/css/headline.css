@@ -1,0 +1,18 @@
+.headline {
+  font-size: var(--fs-xxl);
+  font-weight: 500;
+  color: var(--color-blue-main);
+  position: relative;
+  line-height: 1;
+}
+.headline--margin-sm {
+  margin-bottom: 30px;
+}
+.headline--light {
+  color: var(--color-white);
+}
+.headline--center::after {
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}/*# sourceMappingURL=headline.css.map */

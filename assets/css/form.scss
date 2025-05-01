@@ -1,0 +1,46 @@
+.form {
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+    padding: var(--padding-sm);
+
+    &__inputs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: var(--gap-md);
+        row-gap: var(--gap-sm)
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        grid-column: span 2;
+
+        @media(min-width: $sm) {
+            grid-column: span 1;
+        }
+
+        &:last-child:nth-child(odd) {
+            grid-column: span 2;
+        }
+    }
+
+    &__input {
+        padding: var(--padding-sm)
+    }
+
+    &__label {
+        font-size: var(--fs-regular);
+        margin-bottom: var(--margin-xs);
+    }
+
+}
+
+.error-message {
+    position: absolute;
+    top: 90%;
+    color: #ff0000;
+    font-size: var(--fs-xxs);
+    margin-top: 5px;
+  }

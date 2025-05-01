@@ -1,0 +1,34 @@
+.padding {
+    &-top-sm {
+        padding-top: var(--margin-sm);
+    }
+
+    &-top-md {
+        padding-top: var(--margin-md);
+    }
+
+    &-top-lg {
+        padding-top: var(--margin-lg);
+    }
+
+    &-top-xl {
+        padding-top: var(--margin-xl);
+    }
+
+    &-bottom-sm {
+        padding-bottom: var(--margin-sm);
+    }
+
+    &-bottom-md {
+        padding-bottom: var(--margin-md);
+    }
+
+    &-bottom-lg {
+        padding-bottom: var(--margin-lg);
+    }
+
+    &-bottom-xl {
+        padding-bottom: var(--margin-xl);
+    }
+
+}

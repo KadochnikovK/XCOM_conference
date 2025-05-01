@@ -1,0 +1,17 @@
+.date {
+    display: flex;
+    font-size: var(--fs-base);
+
+    &__item {
+        padding: var(--padding-sm);
+
+        &:nth-child(1) {
+            padding-left: 0;
+        }
+
+        &:not(:last-child) {
+            border-right: 1px solid var(--color-white);
+        }
+    }
+
+}

@@ -1,0 +1,59 @@
+.hyphenate {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+
+    word-break: break-word;
+    line-break: auto;
+}
+
+.gradient-text {
+    background: linear-gradient(to right top, #0B1957, #5784E6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    max-width: var(--max-size) !important;
+    color: var(--color-regular);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    padding-right: var(--padding-md);
+    padding-left: var(--padding-md);
+}
+
+.color {
+    color: var(--color-blue-main);
+
+    &--grey {
+        color: var(--color-grey);
+    }
+}
+
+
+.mobile-only {
+    display: block;
+
+    @media (min-width: 600px) {
+
+        display: none;
+
+    }
+}
+
+.bg-light {
+    background: var(--color-white);
+}
+

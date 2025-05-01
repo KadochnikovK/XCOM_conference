@@ -1,0 +1,24 @@
+.line-top {
+  border-top: 1px solid var(--color-grey-light);
+}
+.line-bottom {
+  border-bottom: 1px solid var(--color-grey-light);
+}
+.line-left {
+  border-left: 1px solid var(--color-grey-light);
+}
+.line-right {
+  border-right: 1px solid var(--color-grey-light);
+}
+.line-center {
+  position: relative;
+}
+.line-center::after {
+  content: "";
+  top: 0;
+  left: 50%;
+  height: 100%;
+  position: absolute;
+  width: 1px;
+  background-color: var(--color-grey-light);
+}/*# sourceMappingURL=line.css.map */

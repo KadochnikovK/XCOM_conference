@@ -1,0 +1,25 @@
+.headgroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+
+    &__label {
+        font-size: var(--fs-regular);
+
+        &::before {
+            content: "[ ";
+        }
+
+        &::after {
+            content: " ]";
+        }
+    }
+
+    &__headline {
+        font-size: var(--fs-base);
+
+        @media (min-width: $sm) {
+            font-size: var(--fs-lg);
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.offer {
+  height: 100vh;
+  background: linear-gradient(to left bottom, #5784E6 -24.17%, #0B1957 72.1%);
+}
+.offer__content {
+  color: var(--color-white);
+  gap: var(--gap-md);
+  justify-content: center;
+  height: 100%;
+}
+.offer__text {
+  font-size: var(--fs-base);
+}/*# sourceMappingURL=offer.css.map */

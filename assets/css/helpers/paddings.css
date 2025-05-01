@@ -1,0 +1,24 @@
+.padding-top-sm {
+  padding-top: var(--margin-sm);
+}
+.padding-top-md {
+  padding-top: var(--margin-md);
+}
+.padding-top-lg {
+  padding-top: var(--margin-lg);
+}
+.padding-top-xl {
+  padding-top: var(--margin-xl);
+}
+.padding-bottom-sm {
+  padding-bottom: var(--margin-sm);
+}
+.padding-bottom-md {
+  padding-bottom: var(--margin-md);
+}
+.padding-bottom-lg {
+  padding-bottom: var(--margin-lg);
+}
+.padding-bottom-xl {
+  padding-bottom: var(--margin-xl);
+}/*# sourceMappingURL=paddings.css.map */

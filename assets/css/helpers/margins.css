@@ -1,0 +1,33 @@
+.margin-top-sm {
+  margin-top: var(--margin-sm);
+}
+.margin-top-md {
+  margin-top: var(--margin-md);
+}
+.margin-top-lg {
+  margin-top: var(--margin-lg);
+}
+.margin-top-xl {
+  margin-top: var(--margin-xl);
+}
+.margin-bottom-sm {
+  margin-bottom: var(--margin-sm);
+}
+.margin-bottom-md {
+  margin-bottom: var(--margin-md);
+}
+.margin-bottom-lg {
+  margin-bottom: var(--margin-lg);
+}
+.margin-bottom-xl {
+  margin-bottom: var(--margin-xl);
+}
+.margin-left-auto {
+  margin-left: auto;
+}
+.margin-right-auto {
+  margin-right: auto;
+}
+.margin-auto {
+  margin: auto;
+}/*# sourceMappingURL=margins.css.map */
